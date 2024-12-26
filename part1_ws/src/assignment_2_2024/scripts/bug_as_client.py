@@ -2,7 +2,7 @@
 import rospy
 import actionlib
 import assignment_2_2024.msg
-from geometry_msgs.msg import Point, Pose, Twist
+from geometry_msgs.msg import Point, Pose, Twist,PoseStamped
 from assignment_2_2024.msg import PoseVel
 from std_msgs.msg import Empty 
 from nav_msgs.msg import Odometry
@@ -16,7 +16,7 @@ action_client = None
 last_x = None
 last_z = None
 
-def clbk_cancel_goal():
+def clbk_cancel_goal(data):
     action_client.cancel_goal()
 
 def clbk_odom(msg):
@@ -55,9 +55,12 @@ def bug_client(goal):
     # listening for goals. (So the goals aren't ignored.)
     action_client.wait_for_server()
 
-    
+    new_goal = PoseStamped()
+    new_goal.pose = goal
+    new_goal.header.stamp = rospy.Time.now()  # Current time
+    new_goal.header.frame_id = "odom"
     # Creates a goal to send to the action server.
-    goal = assignment_2_2024.msg.PlanningAction(target_pose=goal)
+    goal = assignment_2_2024.msg.PlanningGoal(target_pose=new_goal)
 
     # Sends the goal to the action server.
     action_client.send_goal(goal)
@@ -74,7 +77,7 @@ if __name__ == '__main__':
         # publish and subscribe over ROS.
         rospy.init_node('bug_client_py')
 
-        pos_vel_pub = rospy.Publisher('/pos_vel', PoseVel)
+        pos_vel_pub = rospy.Publisher('/pos_vel', PoseVel,queue_size=1)
 
         sub_odom = rospy.Subscriber('/odom', Odometry, clbk_odom)
         sub_set_goal = rospy.Subscriber('/set_goal', Pose, bug_client)
