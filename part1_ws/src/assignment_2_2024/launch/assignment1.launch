@@ -3,6 +3,7 @@
     <include file="$(find assignment_2_2024)/launch/sim_w1.launch" />
     <param name="des_pos_x" value= "5.0" />
     <param name="des_pos_y" value= "10.0" />
+    <node pkg="assignment_2_2024" type="target_service_node.py" name="target_service_node" />
     <node pkg="assignment_2_2024" type="bug_as_client.py" name="bug_action_client" />
     <node pkg="assignment_2_2024" type="wall_follow_service.py" name="wall_follower" />
     <node pkg="assignment_2_2024" type="go_to_point_service.py" name="go_to_point"  />

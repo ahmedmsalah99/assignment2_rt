@@ -42,7 +42,10 @@ def clbk_odom(msg):
     pos_vel_pub.publish(pose_vel)
 
 
-    
+def feedback_callback(feedback):
+    rospy.loginfo("feedback {}".format(feedback.stat))
+    rospy.loginfo("pos x {} pos y {}".format(feedback.actual_pose.position.x,feedback.actual_pose.position.y))
+
 
 
 
@@ -63,7 +66,7 @@ def bug_client(goal):
     goal = assignment_2_2024.msg.PlanningGoal(target_pose=new_goal)
 
     # Sends the goal to the action server.
-    action_client.send_goal(goal)
+    action_client.send_goal(goal,feedback_cb=feedback_callback)
 
     # Waits for the server to finish performing the action.
     action_client.wait_for_result()
