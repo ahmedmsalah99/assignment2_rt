@@ -17,9 +17,20 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(geometry_msgs REQUIRED)
+
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
+
+
+add_executable(UI src/UI.cpp)
+ament_target_dependencies(UI rclcpp geometry_msgs)
+install(TARGETS UI DESTINATION lib/${PROJECT_NAME})
+
+ament_export_dependencies(ament_cmake rclcpp geometry_msgs rosidl_default_runtime)
+
 
 install(DIRECTORY
   launch urdf config worlds
