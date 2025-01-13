@@ -19,10 +19,16 @@ class UiNode : public rclcpp::Node
         feet_pos = this->create_publisher<geometry_msgs::msg::Pose>("feet_pos",10);
         pose_sub = this->create_subscription<std_msgs::msg::String>(
       "/pose", 10, std::bind(&UiNode::pose_callback, this, _1));
-    }
+
+      service =this->create_service<example_interfaces::srv::Stop>("stop_robot", &UiNode::stop_robot);
+    
         runUI();
     }
-
+    void stop_robot(const std::shared_ptr<example_interfaces::srv::Stop::Request> request,
+          std::shared_ptr<example_interfaces::srv::Stop::Response>      response){
+            Twist zero_twist;
+            pub->publish(zero_twist);
+    }
     void pose_callback(const geometry_msgs::msg::Pose::SharedPtr msg) const{
         geometry_msgs::msg::Pose pose;
         pose.x = msg->x*3.28;
@@ -65,7 +71,7 @@ class UiNode : public rclcpp::Node
     }
     rclcpp::Publisher<Twist>::SharedPtr pub;
     rclcpp::Publisher<geometry_msgs::msg::Pose>::SharedPtr feet_pos;
-
+    rclcpp::Service<example_interfaces::srv::Stop>::SharedPtr service;
     private:
         bool is_number(const std::string& s)
         {
