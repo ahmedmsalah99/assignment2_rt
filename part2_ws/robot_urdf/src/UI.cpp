@@ -1,4 +1,5 @@
 #include "geometry_msgs/msg/twist.hpp"
+#include "geometry_msgs/msg/pose.hpp"
 #include "rclcpp/rclcpp.hpp"
 #include <string>
 #include "unistd.h"
@@ -14,12 +15,24 @@ class UiNode : public rclcpp::Node
     UiNode():Node("UI")
     {
         pub = this->create_publisher<Twist>("cmd_vel",10);
+
+        feet_pos = this->create_publisher<geometry_msgs::msg::Pose>("feet_pos",10);
+        pose_sub = this->create_subscription<std_msgs::msg::String>(
+      "/pose", 10, std::bind(&UiNode::pose_callback, this, _1));
+    }
         runUI();
+    }
+
+    void pose_callback(const geometry_msgs::msg::Pose::SharedPtr msg) const{
+        geometry_msgs::msg::Pose pose;
+        pose.x = msg->x*3.28;
+        pose.y = msg->y*3.28;
+        feet_pos->publish(pose);
     }
     void runUI(){
         Twist twist;
         Twist zero_twist;
-        std::vector<double> twist_vals{0,0,0};
+        std::vector<double> twist_vals{0,0};
         std::string robot_twise;
         // initializations
         robot_twise = "";
@@ -27,9 +40,9 @@ class UiNode : public rclcpp::Node
         
     
         // take the twist of the turtle as input
-        std::vector<std::string> user_msgs = std::vector<std::string>({"x: ","y: ","yaw: "});
+        std::vector<std::string> user_msgs = std::vector<std::string>({"x: ","y: "});
         while(rclcpp::ok()){
-            for (int i=0;i<3;i++)
+            for (int i=0;i<2;i++)
             {
                 while(!is_number(robot_twise))
                 {
@@ -43,13 +56,15 @@ class UiNode : public rclcpp::Node
             // assign the twist
             twist.linear.x = twist_vals[0];
             twist.linear.y = twist_vals[1];
-            twist.angular.z = twist_vals[2];
+            // twist.angular.z = twist_vals[2];
             pub->publish(twist);
-            sleep(1);
+            // sleep(1);
+            rclcpp::sleep_for(std::chrono::milliseconds(1000));
             pub->publish(zero_twist);
         }
     }
     rclcpp::Publisher<Twist>::SharedPtr pub;
+    rclcpp::Publisher<geometry_msgs::msg::Pose>::SharedPtr feet_pos;
 
     private:
         bool is_number(const std::string& s)
