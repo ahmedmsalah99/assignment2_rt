@@ -4,6 +4,7 @@
 #include <string>
 #include "unistd.h"
 #include<iostream>
+#include "robot_urdf/srv/stop.hpp"
 
 
 
@@ -20,12 +21,12 @@ class UiNode : public rclcpp::Node
         pose_sub = this->create_subscription<std_msgs::msg::String>(
       "/pose", 10, std::bind(&UiNode::pose_callback, this, _1));
 
-      service =this->create_service<example_interfaces::srv::Stop>("stop_robot", &UiNode::stop_robot);
+      service =this->create_service<robot_urdf::srv::Stop>("stop_robot", &UiNode::stop_robot);
     
         runUI();
     }
-    void stop_robot(const std::shared_ptr<example_interfaces::srv::Stop::Request> request,
-          std::shared_ptr<example_interfaces::srv::Stop::Response>      response){
+    void stop_robot(const std::shared_ptr<robot_urdf::srv::Stop::Request> request,
+          std::shared_ptr<robot_urdf::srv::Stop::Response>      response){
             Twist zero_twist;
             pub->publish(zero_twist);
             response->result = true;
