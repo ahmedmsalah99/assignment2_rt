@@ -28,6 +28,7 @@ class UiNode : public rclcpp::Node
           std::shared_ptr<example_interfaces::srv::Stop::Response>      response){
             Twist zero_twist;
             pub->publish(zero_twist);
+            response->result = true;
     }
     void pose_callback(const geometry_msgs::msg::Pose::SharedPtr msg) const{
         geometry_msgs::msg::Pose pose;
