@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.1" xml:lang="en-US">
+  <compound refid="class_ui_node" kind="class"><name>UiNode</name>
+    <member refid="class_ui_node_1a4b90779462b94abd77101aaaa244d025" kind="variable"><name>pub</name></member>
+    <member refid="class_ui_node_1a23009a4878ef0b4841e46ccc7cf07f19" kind="function"><name>UiNode</name></member>
+    <member refid="class_ui_node_1ab75d852ad82f1da2c6252df10bd0ac45" kind="function"><name>runUI</name></member>
+    <member refid="class_ui_node_1a2a1341d969d5b1080bd8a45d3403ee47" kind="function"><name>is_number</name></member>
+  </compound>
+  <compound refid="namespacerclcpp" kind="namespace"><name>rclcpp</name>
+  </compound>
+  <compound refid="_u_i_8cpp" kind="file"><name>UI.cpp</name>
+    <member refid="_u_i_8cpp_1a2f304fa38449e26b09c0640b96772341" kind="typedef"><name>Twist</name></member>
+    <member refid="_u_i_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="dir_3334355a21de9e1051b50931890bfff8" kind="dir"><name>/home/stark/stuff/RoboticsCourses/ResearchTrack/assignment2/assignment2_rt/part2_ws</name>
+  </compound>
+  <compound refid="dir_00d09747ed4c0f21e627840fe41ba76a" kind="dir"><name>/home/stark/stuff/RoboticsCourses/ResearchTrack/assignment2/assignment2_rt/part2_ws/robot_urdf</name>
+  </compound>
+  <compound refid="dir_6c6cf1ee056376b5e657e65c4d0790fe" kind="dir"><name>/home/stark/stuff/RoboticsCourses/ResearchTrack/assignment2/assignment2_rt/part2_ws/robot_urdf/src</name>
+  </compound>
+</doxygenindex>

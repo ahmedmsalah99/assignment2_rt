@@ -1,0 +1,564 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>assignment2 documentation &mdash; assignment2 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            assignment2
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">assignment2 documentation</a></li>
+<li><a class="reference internal" href="#module-bug_as_client">bug_as_client Module</a><ul>
+<li><a class="reference internal" href="#bug_as_client.bug_client"><code class="docutils literal notranslate"><span class="pre">bug_client()</span></code></a></li>
+<li><a class="reference internal" href="#bug_as_client.clbk_cancel_goal"><code class="docutils literal notranslate"><span class="pre">clbk_cancel_goal()</span></code></a></li>
+<li><a class="reference internal" href="#bug_as_client.clbk_odom"><code class="docutils literal notranslate"><span class="pre">clbk_odom()</span></code></a></li>
+<li><a class="reference internal" href="#bug_as_client.feedback_callback"><code class="docutils literal notranslate"><span class="pre">feedback_callback()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-go_to_point_service">go_to_point_service Module</a><ul>
+<li><a class="reference internal" href="#go_to_point_service.change_state"><code class="docutils literal notranslate"><span class="pre">change_state()</span></code></a></li>
+<li><a class="reference internal" href="#go_to_point_service.clbk_odom"><code class="docutils literal notranslate"><span class="pre">clbk_odom()</span></code></a></li>
+<li><a class="reference internal" href="#go_to_point_service.done"><code class="docutils literal notranslate"><span class="pre">done()</span></code></a></li>
+<li><a class="reference internal" href="#go_to_point_service.fix_yaw"><code class="docutils literal notranslate"><span class="pre">fix_yaw()</span></code></a></li>
+<li><a class="reference internal" href="#go_to_point_service.go_straight_ahead"><code class="docutils literal notranslate"><span class="pre">go_straight_ahead()</span></code></a></li>
+<li><a class="reference internal" href="#go_to_point_service.go_to_point_switch"><code class="docutils literal notranslate"><span class="pre">go_to_point_switch()</span></code></a></li>
+<li><a class="reference internal" href="#go_to_point_service.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li><a class="reference internal" href="#go_to_point_service.normalize_angle"><code class="docutils literal notranslate"><span class="pre">normalize_angle()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-0">target_service_node Module</a><ul>
+<li><a class="reference internal" href="#target_service_node.get_goal"><code class="docutils literal notranslate"><span class="pre">get_goal()</span></code></a></li>
+<li><a class="reference internal" href="#target_service_node.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-wall_follow_service">wall_follow_service Module</a></li>
+<li><a class="reference internal" href="#module-bug_as">bug_as Module</a><ul>
+<li><a class="reference internal" href="#bug_as.change_state"><code class="docutils literal notranslate"><span class="pre">change_state()</span></code></a></li>
+<li><a class="reference internal" href="#bug_as.clbk_laser"><code class="docutils literal notranslate"><span class="pre">clbk_laser()</span></code></a></li>
+<li><a class="reference internal" href="#bug_as.clbk_odom"><code class="docutils literal notranslate"><span class="pre">clbk_odom()</span></code></a></li>
+<li><a class="reference internal" href="#bug_as.done"><code class="docutils literal notranslate"><span class="pre">done()</span></code></a></li>
+<li><a class="reference internal" href="#bug_as.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li><a class="reference internal" href="#bug_as.normalize_angle"><code class="docutils literal notranslate"><span class="pre">normalize_angle()</span></code></a></li>
+<li><a class="reference internal" href="#bug_as.planning"><code class="docutils literal notranslate"><span class="pre">planning()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ui-module">UI Module</a><ul>
+<li><a class="reference internal" href="#_CPPv46UiNode"><code class="docutils literal notranslate"><span class="pre">UiNode</span></code></a><ul>
+<li><a class="reference internal" href="#_CPPv4N6UiNode6UiNodeEv"><code class="docutils literal notranslate"><span class="pre">UiNode()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N6UiNode5runUIEv"><code class="docutils literal notranslate"><span class="pre">runUI()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N6UiNode9is_numberERKNSt6stringE"><code class="docutils literal notranslate"><span class="pre">is_number()</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv4N6UiNode3pubE"><code class="docutils literal notranslate"><span class="pre">pub</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#_CPPv46rclcpp"><code class="docutils literal notranslate"><span class="pre">rclcpp</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv45Twist"><code class="docutils literal notranslate"><span class="pre">Twist</span></code></a></li>
+<li><a class="reference internal" href="#_CPPv44mainiPPc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">assignment2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">assignment2 documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="assignment2-documentation">
+<h1>assignment2 documentation<a class="headerlink" href="#assignment2-documentation" title="Link to this heading"></a></h1>
+<p>Add your content using <code class="docutils literal notranslate"><span class="pre">reStructuredText</span></code> syntax. See the
+<a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html">reStructuredText</a>
+documentation for details.</p>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="module-bug_as_client">
+<span id="bug-as-client-module"></span><h1>bug_as_client Module<a class="headerlink" href="#module-bug_as_client" title="Link to this heading"></a></h1>
+<p>ROS node for controlling the robot.</p>
+<dl class="simple">
+<dt>Subscribes to:</dt><dd><p>/odom
+/set_goal
+/cancel_goal</p>
+</dd>
+<dt>Publishes to:</dt><dd><p>/pos_vel</p>
+</dd>
+<dt>Clients:</dt><dd><p>/reaching_goal</p>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="bug_as_client.bug_client">
+<span class="sig-prename descclassname"><span class="pre">bug_as_client.</span></span><span class="sig-name descname"><span class="pre">bug_client</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">goal</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bug_as_client.html#bug_client"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bug_as_client.bug_client" title="Link to this definition"></a></dt>
+<dd><p>Sends a goal to the action server and waits for the result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>goal</strong> (<em>Pose</em>) – Target position for the robot.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The result from the action server.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>PlanningResult</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bug_as_client.clbk_cancel_goal">
+<span class="sig-prename descclassname"><span class="pre">bug_as_client.</span></span><span class="sig-name descname"><span class="pre">clbk_cancel_goal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bug_as_client.html#clbk_cancel_goal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bug_as_client.clbk_cancel_goal" title="Link to this definition"></a></dt>
+<dd><p>Callback function to cancel the current goal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>Empty</em>) – Message received on the cancel goal topic.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bug_as_client.clbk_odom">
+<span class="sig-prename descclassname"><span class="pre">bug_as_client.</span></span><span class="sig-name descname"><span class="pre">clbk_odom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bug_as_client.html#clbk_odom"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bug_as_client.clbk_odom" title="Link to this definition"></a></dt>
+<dd><p>Callback function to process odometry messages.
+Computes velocity based on position changes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>msg</strong> (<em>Odometry</em>) – Odometry message containing the robot’s position.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bug_as_client.feedback_callback">
+<span class="sig-prename descclassname"><span class="pre">bug_as_client.</span></span><span class="sig-name descname"><span class="pre">feedback_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feedback</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bug_as_client.html#feedback_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bug_as_client.feedback_callback" title="Link to this definition"></a></dt>
+<dd><p>Callback function to handle feedback from the action server.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>feedback</strong> (<em>PlanningFeedback</em>) – Feedback message from the action server.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-go_to_point_service">
+<span id="go-to-point-service-module"></span><h1>go_to_point_service Module<a class="headerlink" href="#module-go_to_point_service" title="Link to this heading"></a></h1>
+<p>ROS node for controlling the robot’s movement towards a specified goal.</p>
+<dl class="simple">
+<dt>Subscribes to:</dt><dd><p>/odom</p>
+</dd>
+<dt>Publishes to:</dt><dd><p>/cmd_vel</p>
+</dd>
+<dt>Services:</dt><dd><p>/go_to_point_switch</p>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="go_to_point_service.change_state">
+<span class="sig-prename descclassname"><span class="pre">go_to_point_service.</span></span><span class="sig-name descname"><span class="pre">change_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/go_to_point_service.html#change_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#go_to_point_service.change_state" title="Link to this definition"></a></dt>
+<dd><p>Change the current state of the robot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – New state to transition to.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="go_to_point_service.clbk_odom">
+<span class="sig-prename descclassname"><span class="pre">go_to_point_service.</span></span><span class="sig-name descname"><span class="pre">clbk_odom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/go_to_point_service.html#clbk_odom"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#go_to_point_service.clbk_odom" title="Link to this definition"></a></dt>
+<dd><p>Callback function to process odometry messages.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>msg</strong> (<em>Odometry</em>) – Odometry message containing the robot’s position and orientation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="go_to_point_service.done">
+<span class="sig-prename descclassname"><span class="pre">go_to_point_service.</span></span><span class="sig-name descname"><span class="pre">done</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/go_to_point_service.html#done"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#go_to_point_service.done" title="Link to this definition"></a></dt>
+<dd><p>Stop the robot once it reaches the target position.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="go_to_point_service.fix_yaw">
+<span class="sig-prename descclassname"><span class="pre">go_to_point_service.</span></span><span class="sig-name descname"><span class="pre">fix_yaw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">des_pos</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/go_to_point_service.html#fix_yaw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#go_to_point_service.fix_yaw" title="Link to this definition"></a></dt>
+<dd><p>Adjust the robot’s yaw to face the desired position.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>des_pos</strong> (<em>Point</em>) – Target position.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="go_to_point_service.go_straight_ahead">
+<span class="sig-prename descclassname"><span class="pre">go_to_point_service.</span></span><span class="sig-name descname"><span class="pre">go_straight_ahead</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">des_pos</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/go_to_point_service.html#go_straight_ahead"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#go_to_point_service.go_straight_ahead" title="Link to this definition"></a></dt>
+<dd><p>Move the robot straight towards the target position.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>des_pos</strong> (<em>Point</em>) – Target position.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="go_to_point_service.go_to_point_switch">
+<span class="sig-prename descclassname"><span class="pre">go_to_point_service.</span></span><span class="sig-name descname"><span class="pre">go_to_point_switch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">req</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/go_to_point_service.html#go_to_point_switch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#go_to_point_service.go_to_point_switch" title="Link to this definition"></a></dt>
+<dd><p>Service callback to enable or disable the go_to_point behavior.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>req</strong> (<em>SetBoolRequest</em>) – Service request containing the activation flag.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Response confirming activation status.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>SetBoolResponse</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="go_to_point_service.main">
+<span class="sig-prename descclassname"><span class="pre">go_to_point_service.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/go_to_point_service.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#go_to_point_service.main" title="Link to this definition"></a></dt>
+<dd><p>Main function to initialize the node and control robot movement.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="go_to_point_service.normalize_angle">
+<span class="sig-prename descclassname"><span class="pre">go_to_point_service.</span></span><span class="sig-name descname"><span class="pre">normalize_angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">angle</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/go_to_point_service.html#normalize_angle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#go_to_point_service.normalize_angle" title="Link to this definition"></a></dt>
+<dd><p>Normalize an angle to be within [-pi, pi].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>angle</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – Angle in radians.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Normalized angle.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-0">
+<span id="target-service-node-module"></span><h1>target_service_node Module<a class="headerlink" href="#module-0" title="Link to this heading"></a></h1>
+<p id="module-target_service_node">This ROS node provides a service that returns the desired goal position
+retrieved from ROS parameters.</p>
+<dl class="simple">
+<dt>Services:</dt><dd><p>/get_goal</p>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="target_service_node.get_goal">
+<span class="sig-prename descclassname"><span class="pre">target_service_node.</span></span><span class="sig-name descname"><span class="pre">get_goal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/target_service_node.html#get_goal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#target_service_node.get_goal" title="Link to this definition"></a></dt>
+<dd><p>Service callback function that returns the desired goal position.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>GoalRequest</em>) – The service request (unused in this function).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The response containing the goal position.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>GoalResponse</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="target_service_node.main">
+<span class="sig-prename descclassname"><span class="pre">target_service_node.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/target_service_node.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#target_service_node.main" title="Link to this definition"></a></dt>
+<dd><p>Main function to initialize the ROS node and service.</p>
+</dd></dl>
+
+</section>
+<section id="module-wall_follow_service">
+<span id="wall-follow-service-module"></span><h1>wall_follow_service Module<a class="headerlink" href="#module-wall_follow_service" title="Link to this heading"></a></h1>
+</section>
+<section id="module-bug_as">
+<span id="bug-as-module"></span><h1>bug_as Module<a class="headerlink" href="#module-bug_as" title="Link to this heading"></a></h1>
+<p>ROS node for controlling the robot navigation.</p>
+<dl class="simple">
+<dt>Subscribes to:</dt><dd><p>/scan (sensor_msgs/LaserScan): LiDAR data for obstacle detection.
+/odom (nav_msgs/Odometry): Odometry data for localization.</p>
+</dd>
+<dt>Publishes to:</dt><dd><p>/cmd_vel (geometry_msgs/Twist): Velocity commands for the robot.</p>
+</dd>
+<dt>Clients:</dt><dd><p>/go_to_point_switch (std_srvs/SetBool): Service to enable or disable the ‘go to point’ behavior.
+/wall_follower_switch (std_srvs/SetBool): Service to enable or disable the ‘wall following’ behavior.</p>
+</dd>
+<dt>Action Server:</dt><dd><p>/reaching_goal (assignment_2_2024/PlanningAction): Action to handle goal reaching tasks.</p>
+</dd>
+</dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="bug_as.change_state">
+<span class="sig-prename descclassname"><span class="pre">bug_as.</span></span><span class="sig-name descname"><span class="pre">change_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bug_as.html#change_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bug_as.change_state" title="Link to this definition"></a></dt>
+<dd><p>Changes the robot’s navigation state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – The new state to transition to (0: go to point, 1: wall following, 2: done).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bug_as.clbk_laser">
+<span class="sig-prename descclassname"><span class="pre">bug_as.</span></span><span class="sig-name descname"><span class="pre">clbk_laser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bug_as.html#clbk_laser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bug_as.clbk_laser" title="Link to this definition"></a></dt>
+<dd><p>Callback function to process laser scan data and update obstacle regions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>msg</strong> (<em>sensor_msgs/LaserScan</em>) – The laser scan message containing distance readings.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bug_as.clbk_odom">
+<span class="sig-prename descclassname"><span class="pre">bug_as.</span></span><span class="sig-name descname"><span class="pre">clbk_odom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bug_as.html#clbk_odom"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bug_as.clbk_odom" title="Link to this definition"></a></dt>
+<dd><p>Callback function to update the robot’s position and orientation from odometry data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>msg</strong> (<em>nav_msgs/Odometry</em>) – The odometry message containing position and orientation data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bug_as.done">
+<span class="sig-prename descclassname"><span class="pre">bug_as.</span></span><span class="sig-name descname"><span class="pre">done</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/bug_as.html#done"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bug_as.done" title="Link to this definition"></a></dt>
+<dd><p>Stops the robot by publishing zero velocity commands.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bug_as.main">
+<span class="sig-prename descclassname"><span class="pre">bug_as.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/bug_as.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bug_as.main" title="Link to this definition"></a></dt>
+<dd><p>Main function to initialize the ROS node and setup subscriptions, publications, and services.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bug_as.normalize_angle">
+<span class="sig-prename descclassname"><span class="pre">bug_as.</span></span><span class="sig-name descname"><span class="pre">normalize_angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">angle</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bug_as.html#normalize_angle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bug_as.normalize_angle" title="Link to this definition"></a></dt>
+<dd><p>Normalizes an angle to the range [-pi, pi].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>angle</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)"><em>float</em></a>) – The input angle in radians.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The normalized angle.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.13)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bug_as.planning">
+<span class="sig-prename descclassname"><span class="pre">bug_as.</span></span><span class="sig-name descname"><span class="pre">planning</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">goal</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bug_as.html#planning"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bug_as.planning" title="Link to this definition"></a></dt>
+<dd><p>Action server callback to handle goal reaching while avoiding obstacles.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>goal</strong> (<em>assignment_2_2024/PlanningGoal</em>) – The goal position to reach.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="ui-module">
+<h1>UI Module<a class="headerlink" href="#ui-module" title="Link to this heading"></a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv46UiNode">
+<span id="_CPPv36UiNode"></span><span id="_CPPv26UiNode"></span><span id="UiNode"></span><span class="target" id="class_ui_node"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UiNode</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv46rclcpp" title="rclcpp"><span class="n"><span class="pre">rclcpp</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Node</span></span><a class="headerlink" href="#_CPPv46UiNode" title="Link to this definition"></a><br /></dt>
+<dd><p>A ROS2 Node that allows users to input velocity commands for a robot. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6UiNode6UiNodeEv">
+<span id="_CPPv3N6UiNode6UiNodeEv"></span><span id="_CPPv2N6UiNode6UiNodeEv"></span><span id="UiNode::UiNode"></span><span class="target" id="class_ui_node_1a23009a4878ef0b4841e46ccc7cf07f19"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UiNode</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6UiNode6UiNodeEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Constructor for the <a class="reference internal" href="#class_ui_node"><span class="std std-ref">UiNode</span></a> class. </p>
+<p>Initializes the ROS2 publisher and starts the user input loop. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6UiNode5runUIEv">
+<span id="_CPPv3N6UiNode5runUIEv"></span><span id="_CPPv2N6UiNode5runUIEv"></span><span id="UiNode::runUI"></span><span class="target" id="class_ui_node_1ab75d852ad82f1da2c6252df10bd0ac45"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">runUI</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6UiNode5runUIEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Runs the UI to get velocity inputs from the user. </p>
+<p>Takes input from the user for linear and angular velocities and publishes them to the robot. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N6UiNode9is_numberERKNSt6stringE">
+<span id="_CPPv3N6UiNode9is_numberERKNSt6stringE"></span><span id="_CPPv2N6UiNode9is_numberERKNSt6stringE"></span><span id="UiNode::is_number__ssCR"></span><span class="target" id="class_ui_node_1a2a1341d969d5b1080bd8a45d3403ee47"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">is_number</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">s</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N6UiNode9is_numberERKNSt6stringE" title="Link to this definition"></a><br /></dt>
+<dd><p>Checks if a given string represents a valid number. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>s</strong> – The string to check. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>true if the string represents a valid number, false otherwise. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6UiNode3pubE">
+<span id="_CPPv3N6UiNode3pubE"></span><span id="_CPPv2N6UiNode3pubE"></span><span id="UiNode::pub__rclcpp::Publisher:Twist:::SharedPtr"></span><span class="target" id="class_ui_node_1a4b90779462b94abd77101aaaa244d025"></span><a class="reference internal" href="#_CPPv46rclcpp" title="rclcpp"><span class="n"><span class="pre">rclcpp</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Publisher</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv45Twist" title="Twist"><span class="n"><span class="pre">Twist</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">SharedPtr</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pub</span></span></span><a class="headerlink" href="#_CPPv4N6UiNode3pubE" title="Link to this definition"></a><br /></dt>
+<dd><p>Publisher for velocity commands. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv46rclcpp">
+<span id="_CPPv36rclcpp"></span><span id="_CPPv26rclcpp"></span><span id="rclcpp"></span><span class="target" id="namespacerclcpp"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rclcpp</span></span></span><a class="headerlink" href="#_CPPv46rclcpp" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="_u_i_8cpp"></span><em><span class="pre">file</span></em> <span class="sig-name descname"><span class="pre">UI.cpp</span></span></dt>
+<dd><div class="docutils container">
+<em>#include “geometry_msgs/msg/twist.hpp”</em></div>
+<div class="docutils container">
+<em>#include “rclcpp/rclcpp.hpp”</em></div>
+<div class="docutils container">
+<em>#include &lt;string&gt;</em></div>
+<div class="docutils container">
+<em>#include “unistd.h”</em></div>
+<div class="docutils container">
+<em>#include &lt;iostream&gt;</em></div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-typedefs">Typedefs</p>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv45Twist">
+<span id="_CPPv35Twist"></span><span id="_CPPv25Twist"></span><span class="target" id="_u_i_8cpp_1a2f304fa38449e26b09c0640b96772341"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Twist</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">geometry_msgs</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">msg</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Twist</span></span><a class="headerlink" href="#_CPPv45Twist" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv44mainiPPc">
+<span id="_CPPv34mainiPPc"></span><span id="_CPPv24mainiPPc"></span><span id="main__i.cPP"></span><span class="target" id="_u_i_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">main</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">argc</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">argv</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv44mainiPPc" title="Link to this definition"></a><br /></dt>
+<dd><p>Main function for the ROS2 node. </p>
+<p>Initializes ROS2 and starts the <a class="reference internal" href="#class_ui_node"><span class="std std-ref">UiNode</span></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>argc</strong> – Number of command-line arguments. </p></li>
+<li><p><strong>argv</strong> – Array of command-line arguments. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Exit status. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="dir_3334355a21de9e1051b50931890bfff8"></span><em><span class="pre">dir</span></em> <span class="sig-name descname"><span class="pre">/home/stark/stuff/RoboticsCourses/ResearchTrack/assignment2/assignment2_rt/part2_ws</span></span></dt>
+<dd></dd></dl>
+
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="dir_00d09747ed4c0f21e627840fe41ba76a"></span><em><span class="pre">dir</span></em> <span class="sig-name descname"><span class="pre">/home/stark/stuff/RoboticsCourses/ResearchTrack/assignment2/assignment2_rt/part2_ws/robot_urdf</span></span></dt>
+<dd></dd></dl>
+
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="dir_6c6cf1ee056376b5e657e65c4d0790fe"></span><em><span class="pre">dir</span></em> <span class="sig-name descname"><span class="pre">/home/stark/stuff/RoboticsCourses/ResearchTrack/assignment2/assignment2_rt/part2_ws/robot_urdf/src</span></span></dt>
+<dd></dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Yousef.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

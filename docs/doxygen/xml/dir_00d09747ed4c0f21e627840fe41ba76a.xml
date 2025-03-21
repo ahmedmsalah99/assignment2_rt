@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_00d09747ed4c0f21e627840fe41ba76a" kind="dir">
+    <compoundname>/home/stark/stuff/RoboticsCourses/ResearchTrack/assignment2/assignment2_rt/part2_ws/robot_urdf</compoundname>
+    <innerdir refid="dir_6c6cf1ee056376b5e657e65c4d0790fe">/home/stark/stuff/RoboticsCourses/ResearchTrack/assignment2/assignment2_rt/part2_ws/robot_urdf/src</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/stark/stuff/RoboticsCourses/ResearchTrack/assignment2/assignment2_rt/part2_ws/robot_urdf/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,4 @@
+<map id="UiNode" name="UiNode">
+<area shape="rect" id="node1" title="A ROS2 Node that allows users to input velocity commands for a robot." alt="" coords="20,80,87,107"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,5,101,32"/>
+</map>

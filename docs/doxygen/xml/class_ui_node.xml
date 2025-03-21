@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="class_ui_node" kind="class" language="C++" prot="public">
+    <compoundname>UiNode</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">rclcpp::Node</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_ui_node_1a4b90779462b94abd77101aaaa244d025" prot="private" static="no" mutable="no">
+        <type>rclcpp::Publisher&lt; Twist &gt;::SharedPtr</type>
+        <definition>rclcpp::Publisher&lt;Twist&gt;::SharedPtr UiNode::pub</definition>
+        <argsstring></argsstring>
+        <name>pub</name>
+        <briefdescription>
+<para>Publisher for velocity commands. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/stark/stuff/RoboticsCourses/ResearchTrack/assignment2/assignment2_rt/part2_ws/robot_urdf/src/UI.cpp" line="39" column="35" bodyfile="/home/stark/stuff/RoboticsCourses/ResearchTrack/assignment2/assignment2_rt/part2_ws/robot_urdf/src/UI.cpp" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_ui_node_1a23009a4878ef0b4841e46ccc7cf07f19" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>UiNode::UiNode</definition>
+        <argsstring>()</argsstring>
+        <name>UiNode</name>
+        <briefdescription>
+<para>Constructor for the <ref refid="class_ui_node" kindref="compound">UiNode</ref> class. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Initializes the ROS2 publisher and starts the user input loop. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/stark/stuff/RoboticsCourses/ResearchTrack/assignment2/assignment2_rt/part2_ws/robot_urdf/src/UI.cpp" line="32" column="5" bodyfile="/home/stark/stuff/RoboticsCourses/ResearchTrack/assignment2/assignment2_rt/part2_ws/robot_urdf/src/UI.cpp" bodystart="32" bodyend="36"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_ui_node_1ab75d852ad82f1da2c6252df10bd0ac45" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void UiNode::runUI</definition>
+        <argsstring>()</argsstring>
+        <name>runUI</name>
+        <briefdescription>
+<para>Runs the UI to get velocity inputs from the user. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Takes input from the user for linear and angular velocities and publishes them to the robot. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/stark/stuff/RoboticsCourses/ResearchTrack/assignment2/assignment2_rt/part2_ws/robot_urdf/src/UI.cpp" line="46" column="10" bodyfile="/home/stark/stuff/RoboticsCourses/ResearchTrack/assignment2/assignment2_rt/part2_ws/robot_urdf/src/UI.cpp" bodystart="46" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ui_node_1a2a1341d969d5b1080bd8a45d3403ee47" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool UiNode::is_number</definition>
+        <argsstring>(const std::string &amp;s)</argsstring>
+        <name>is_number</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+<para>Checks if a given string represents a valid number. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>s</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The string to check. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if the string represents a valid number, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/stark/stuff/RoboticsCourses/ResearchTrack/assignment2/assignment2_rt/part2_ws/robot_urdf/src/UI.cpp" line="82" column="10" bodyfile="/home/stark/stuff/RoboticsCourses/ResearchTrack/assignment2/assignment2_rt/part2_ws/robot_urdf/src/UI.cpp" bodystart="82" bodyend="87"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A ROS2 Node that allows users to input velocity commands for a robot. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>UiNode</label>
+        <link refid="class_ui_node"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>rclcpp::Node</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>UiNode</label>
+        <link refid="class_ui_node"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>rclcpp::Node</label>
+      </node>
+    </collaborationgraph>
+    <location file="/home/stark/stuff/RoboticsCourses/ResearchTrack/assignment2/assignment2_rt/part2_ws/robot_urdf/src/UI.cpp" line="24" column="1" bodyfile="/home/stark/stuff/RoboticsCourses/ResearchTrack/assignment2/assignment2_rt/part2_ws/robot_urdf/src/UI.cpp" bodystart="25" bodyend="88"/>
+    <listofallmembers>
+      <member refid="class_ui_node_1a2a1341d969d5b1080bd8a45d3403ee47" prot="private" virt="non-virtual"><scope>UiNode</scope><name>is_number</name></member>
+      <member refid="class_ui_node_1a4b90779462b94abd77101aaaa244d025" prot="private" virt="non-virtual"><scope>UiNode</scope><name>pub</name></member>
+      <member refid="class_ui_node_1ab75d852ad82f1da2c6252df10bd0ac45" prot="private" virt="non-virtual"><scope>UiNode</scope><name>runUI</name></member>
+      <member refid="class_ui_node_1a23009a4878ef0b4841e46ccc7cf07f19" prot="public" virt="non-virtual"><scope>UiNode</scope><name>UiNode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
