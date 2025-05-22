@@ -29,7 +29,7 @@ yaw_precision_ = math.pi / 9  # +/- 20 degree allowed
 yaw_precision_2_ = math.pi / 90  # +/- 2 degree allowed
 dist_precision_ = 0.3
 
-kp_a = 3.0  # In ROS Noetic, it may be necessary to change the sign of this proportional controller
+kp_a = 0.3  # In ROS Noetic, it may be necessary to change the sign of this proportional controller
 kp_d = 0.2
 ub_a = 0.6
 lb_a = -0.5
@@ -124,9 +124,9 @@ def go_straight_ahead(des_pos):
         change_state(2)
 
     # state change conditions
-    if math.fabs(err_yaw) > yaw_precision_:
-        print ('Yaw error: [%s]' % err_yaw)
-        change_state(0)
+    # if math.fabs(err_yaw) > yaw_precision_:
+    #     print ('Yaw error: [%s]' % err_yaw)
+    #     change_state(0)
 
 
 def done():

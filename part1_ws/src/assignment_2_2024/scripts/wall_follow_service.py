@@ -24,6 +24,7 @@ state_dict_ = {
     0: 'find the wall',
     1: 'turn left',
     2: 'follow the wall',
+    3: 'rotate'
 }
 
 
@@ -66,34 +67,35 @@ def take_action():
 
     d0 = 1
     d = 1.5
-
-    if regions['front'] > d0 and regions['fleft'] > d and regions['fright'] > d:
-        state_description = 'case 1 - nothing'
-        change_state(0)
-    elif regions['front'] < d0 and regions['fleft'] > d and regions['fright'] > d:
-        state_description = 'case 2 - front'
-        change_state(1)
-    elif regions['front'] > d0 and regions['fleft'] > d and regions['fright'] < d:
-        state_description = 'case 3 - fright'
-        change_state(2)
-    elif regions['front'] > d0 and regions['fleft'] < d and regions['fright'] > d:
-        state_description = 'case 4 - fleft'
-        change_state(0)
-    elif regions['front'] < d0 and regions['fleft'] > d and regions['fright'] < d:
-        state_description = 'case 5 - front and fright'
-        change_state(1)
-    elif regions['front'] < d0 and regions['fleft'] < d and regions['fright'] > d:
-        state_description = 'case 6 - front and fleft'
-        change_state(1)
-    elif regions['front'] < d0 and regions['fleft'] < d and regions['fright'] < d:
-        state_description = 'case 7 - front and fleft and fright'
-        change_state(1)
-    elif regions['front'] > d0 and regions['fleft'] < d and regions['fright'] < d:
-        state_description = 'case 8 - fleft and fright'
-        change_state(0)
-    else:
-        state_description = 'unknown case'
-        rospy.loginfo(regions)
+    change_state(3)
+    state_description = 'case 4 - rotation'
+    # if regions['front'] > d0 and regions['fleft'] > d and regions['fright'] > d:
+    #     state_description = 'case 1 - nothing'
+    #     change_state(0)
+    # elif regions['front'] < d0 and regions['fleft'] > d and regions['fright'] > d:
+    #     state_description = 'case 2 - front'
+    #     change_state(1)
+    # elif regions['front'] > d0 and regions['fleft'] > d and regions['fright'] < d:
+    #     state_description = 'case 3 - fright'
+    #     change_state(2)
+    # elif regions['front'] > d0 and regions['fleft'] < d and regions['fright'] > d:
+    #     state_description = 'case 4 - fleft'
+    #     change_state(0)
+    # elif regions['front'] < d0 and regions['fleft'] > d and regions['fright'] < d:
+    #     state_description = 'case 5 - front and fright'
+    #     change_state(1)
+    # elif regions['front'] < d0 and regions['fleft'] < d and regions['fright'] > d:
+    #     state_description = 'case 6 - front and fleft'
+    #     change_state(1)
+    # elif regions['front'] < d0 and regions['fleft'] < d and regions['fright'] < d:
+    #     state_description = 'case 7 - front and fleft and fright'
+    #     change_state(1)
+    # elif regions['front'] > d0 and regions['fleft'] < d and regions['fright'] < d:
+    #     state_description = 'case 8 - fleft and fright'
+    #     change_state(0)
+    # else:
+    #     state_description = 'unknown case'
+    #     rospy.loginfo(regions)
 
 
 def find_wall():
@@ -116,6 +118,10 @@ def follow_the_wall():
     msg.linear.x = 0.5
     return msg
 
+def rotate():
+    msg = Twist()
+    msg.angular.z = 0.3
+    return msg
 
 def main():
     global pub_, active_
@@ -141,6 +147,8 @@ def main():
                 msg = turn_left()
             elif state_ == 2:
                 msg = follow_the_wall()
+            elif state_ == 3:
+                msg = rotate()
             else:
                 rospy.logerr('Unknown state!')
 

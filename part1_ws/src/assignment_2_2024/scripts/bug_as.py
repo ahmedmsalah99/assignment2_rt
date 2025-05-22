@@ -86,10 +86,10 @@ def done():
     twist_msg.angular.z = 0
     pub.publish(twist_msg)
     
-    
+initial_yaw = 0
 def planning(goal):
     global regions_, position_, desired_position_, state_, yaw_, yaw_error_allowed_
-    global srv_client_go_to_point_, srv_client_wall_follower_, act_s, pose_
+    global srv_client_go_to_point_, srv_client_wall_follower_, act_s, pose_,initial_yaw
     change_state(0)
     rate = rospy.Rate(20)
     success = True
@@ -130,15 +130,21 @@ def planning(goal):
             feedback.stat = "State 0: go to point"
             feedback.actual_pose = pose_
             act_s.publish_feedback(feedback)
+            rospy.loginfo(regions_['front'])
             if regions_['front'] < 0.2:
                 change_state(1)
+                initial_yaw = yaw_
         elif state_ == 1:
             feedback.stat = "State 1: avoid obstacle"
             feedback.actual_pose = pose_
             act_s.publish_feedback(feedback)
-            desired_yaw = math.atan2(
-                desired_position_.y - position_.y, desired_position_.x - position_.x)
+            desired_yaw = initial_yaw + 3.14
+            # desired_yaw = desired_yaw - (2 * math.pi * desired_yaw) / (math.fabs(desired_yaw))
             err_yaw = normalize_angle(desired_yaw - yaw_)
+            rospy.loginfo(err_yaw)
+            rospy.loginfo(yaw_)
+            rospy.loginfo(desired_yaw)
+            rospy.loginfo(regions_['front'])
             if regions_['front'] > 1 and math.fabs(err_yaw) < 0.05:
                 change_state(0)
         elif state_== 2:
